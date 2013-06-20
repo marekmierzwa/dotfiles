@@ -25,9 +25,6 @@ Bundle 'gmarik/vundle'
 " PLUGINS
 "----------------------------------------------------------
 
-" LaTeX support
-Bundle 'AutomaticTexPlugin'
-
 " javascript indentation in vim sucks
 Bundle 'Better-Javascript-Indentation'
 
@@ -51,9 +48,6 @@ Bundle 'vim-coffee-script'
 
 " cucumber support
 Bundle 'tpope/vim-cucumber'
-
-" d.vim - syntax highliting for D programming language
-Bundle 'd.vim'
 
 " greplace.vim - plugin that allows search and replace across all of the project files
 Bundle 'greplace.vim'
@@ -112,7 +106,7 @@ Bundle 'surround.vim'
 " Snipmate - the new version
 Bundle "git://github.com/MarcWeber/vim-addon-mw-utils.git"
 Bundle "git://github.com/tomtom/tlib_vim.git"
-Bundle "git://github.com/honza/snipmate-snippets.git"
+Bundle "git://github.com/vim-scripts/snipmate-snippets.git"
 
 Bundle "git://github.com/garbas/vim-snipmate.git"
 
@@ -127,14 +121,6 @@ Bundle 'ZenCoding.vim'
 
 " LESS CSS syntax support
 Bundle "vim-less"
-
-" Clojure development plugins
-Bundle "tpope/vim-foreplay"
-Bundle "tpope/vim-classpath"
-Bundle "guns/vim-clojure-static"
-
-" rainbow parentheses, mostly for clojure
-Bundle "kien/rainbow_parentheses.vim"
 
 " automatically close parens
 Bundle 'AutoClose'
@@ -269,12 +255,6 @@ nmap <silent> <leader>gl :Git pull --rebase<cr>
 nmap <silent> <leader>gp :Git push<cr>
 nmap <silent> <leader>gs :Git stash<cr>
 nmap <silent> <leader>gsp :Git stash pop<cr>
-
-" rainbow parentheses always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " Don't indent midje facts
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', 'fact']
