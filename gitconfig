@@ -39,8 +39,8 @@
 [merge]
   tool = vimdiff
 [user]
-	name = Adam Pohorecki
-	email = adam.pohorecki@llp.pl
+	name = Ania
+	email = lesniakania@gmail.com
 [color]
 	ui = auto
 [push]
@@ -48,4 +48,4 @@
 [fetch]
 	recursesubmodules = true
 [github]
-	user = psyho
+	user = lesniakania
