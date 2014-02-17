@@ -39,8 +39,8 @@
 [merge]
   tool = vimdiff
 [user]
-	name = Ania
-	email = lesniakania@gmail.com
+	name = Marek
+	email = marek@copper.io
 [color]
 	ui = auto
 [push]
@@ -48,4 +48,6 @@
 [fetch]
 	recursesubmodules = true
 [github]
-	user = lesniakania
+	user = marekmierzwa
+[core]
+	editor = vim

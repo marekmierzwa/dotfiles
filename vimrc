@@ -11,6 +11,8 @@
 " VUNDLE
 "----------------------------------------------------------
 
+set guifont=Osaka-Mono:h17  " Font family and font size. "
+
 set nocompatible                  " Must come first because it changes other options.
 filetype off                      " required by Vundle
 
@@ -25,6 +27,9 @@ Bundle 'gmarik/vundle'
 " PLUGINS
 "----------------------------------------------------------
 
+" ack - use ack to search through files
+Bundle 'rking/ag.vim'
+
 " javascript indentation in vim sucks
 Bundle 'Better-Javascript-Indentation'
 
@@ -36,6 +41,9 @@ Bundle 'wincent/Command-T'
 
 " NerdCommenter - comment blocks of code
 Bundle 'The-NERD-Commenter'
+
+" NerdTree - displays a neat file explorer window
+Bundle 'scrooloose/nerdtree'
 
 " csapprox - make gvim colorschemes work in console
 Bundle 'CSApprox'
@@ -85,6 +93,9 @@ Bundle 'tpope/vim-rails'
 " vim-repeat - repeat stuff done in vim-surround
 Bundle 'tpope/vim-repeat'
 
+" haml
+Bundle "tpope/vim-haml"
+
 " vim-ruby - ruby integration
 Bundle 'ruby.vim'
 
@@ -101,7 +112,7 @@ Bundle 'Solarized'
 Bundle 'SuperTab-continued.'
 
 " vim-surround - surrounding text with braces, quotes, html tags...
-Bundle 'surround.vim'
+Bundle 'tpope/vim-surround'
 
 " Snipmate - the new version
 Bundle "git://github.com/MarcWeber/vim-addon-mw-utils.git"
@@ -123,7 +134,7 @@ Bundle 'ZenCoding.vim'
 Bundle "vim-less"
 
 " automatically close parens
-Bundle 'AutoClose'
+Bundle 'Townk/vim-autoclose'
 
 "----------------------------------------------------------
 
@@ -213,6 +224,9 @@ nnoremap k gk
 " map .md files fo markdown
 au BufNewFile,BufRead *.md set filetype=markdown
 
+" HAMLC support "
+au BufRead,BufNewFile *.hamlc set ft=haml
+
 " automatically strip trailing whitespace for some file types
 autocmd FileType c,cpp,java,php,javascript,html,ruby autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
@@ -228,6 +242,9 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_enable_signs=1
 let g:syntastic_disabled_filetypes = ['eruby']
+
+" nerd tree
+map <silent> <leader>n :NERDTreeFind<CR>
 
 " zencoding-vim
 let g:user_zen_expandabbr_key = '<c-e>' 
@@ -337,7 +354,7 @@ nmap <silent> <LocalLeader>f :Ggrep <c-r><c-w> **/*rb<cr>
 nmap <silent> <LocalLeader>F :Ggrep <c-r><c-a> **/*rb<cr>
 
 " solarized settings
-set background=light
+set background=dark
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
@@ -357,6 +374,7 @@ set wildignore+=spec/cassettes
 
 " Use Node.js for JavaScript interpretation
 let $JS_CMD='node'
+
 
 " set some different setting for the diff mode
 if &diff
