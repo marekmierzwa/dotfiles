@@ -353,8 +353,8 @@ nmap <silent> <leader>d :!mkdir -p %:h<cr>:w<cr>
 nmap <silent> <LocalLeader>f :Ggrep <c-r><c-w> **/*rb<cr>
 nmap <silent> <LocalLeader>F :Ggrep <c-r><c-a> **/*rb<cr>
 
-" solarized settings
-set background=dark
+"solarized settings
+"set background=dark
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
@@ -366,7 +366,8 @@ if !has("gui_running")
 endif
 
 " Scheme
-colorscheme solarized
+"colorscheme solarized
+colorscheme railscasts
 
 " don't search coverage reports and vcr cassettes
 set wildignore+=spec/reports
