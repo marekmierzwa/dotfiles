@@ -40,7 +40,7 @@
   tool = vimdiff
 [user]
 	name = Marek
-	email = marek@copper.io
+	email = marek@cl.ly
 [color]
 	ui = auto
 [push]

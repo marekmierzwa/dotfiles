@@ -9,3 +9,5 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=T
 set guioptions-=m
+
+set cc=80
