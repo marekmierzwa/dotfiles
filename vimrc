@@ -5,11 +5,15 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'garbas/vim-snipmate' | Plug 'marcweber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim'
 Plug 'honza/vim-snippets'
-Plug 'nanotech/jellybeans.vim'
-Plug 'jpo/vim-railscasts-theme'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
+
+" Theme
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'morhetz/gruvbox'
+Plug 'jpo/vim-railscasts-theme'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -19,6 +23,7 @@ Plug 'scrooloose/nerdtree'
 " Syntax
 Plug 'digitaltoad/vim-jade'
 Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
@@ -60,6 +65,7 @@ endif
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols = {}
+let g:airline_theme = 'zenburn'
 " let g:syntastic_check_on_open = 1
 let g:syntastic_haml_checkers=['haml_lint', 'haml']
 let g:syntastic_html_checkers=['']
@@ -75,6 +81,7 @@ let mapleader = ","
 map <Leader> <Plug>(easymotion-prefix)
 
 colorscheme railscasts
+" set background = dark    " Setting dark mode
 
 " nerd tree
 map <silent> <leader>n :NERDTreeFind<CR>
