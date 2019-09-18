@@ -1,3 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/marekmierzwa/Projects/CloudApp/engine'
+let g:netrw_dirhist_2='/Users/marekmierzwa/Projects/CloudApp/viso'
+let g:netrw_dirhist_3='/Users/marekmierzwa/Projects/CloudApp/viso/views'
+let g:netrw_dirhist_4='/Users/marekmierzwa/Projects/CloudApp/viewer/src'
+let g:netrw_dirhist_5='/Users/marekmierzwa/dotfiles/vim/plugged'
+let g:netrw_dirhist_6='/Users/marekmierzwa/dotfiles'

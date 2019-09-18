@@ -39,8 +39,8 @@
 [merge]
   tool = vimdiff
 [user]
-	name = Marek
-	email = marek@cl.ly
+	name = Marek Mierzwa
+	email = mierzwa.marek@gmail.com
 [color]
 	ui = auto
 [push]
@@ -51,3 +51,5 @@
 	user = marekmierzwa
 [core]
 	editor = vim
+[diff "sopsdiffer"]
+	textconv = sops -d
