@@ -11,11 +11,11 @@ def link_local_to_home(local_name, home_name):
   local_path = os.path.join(current_dir(), local_name)
   home_path = os.path.join('~', home_name)
   home_path = os.path.expanduser(home_path)
-  
+
   if os.path.exists(home_path): os.remove(home_path)
   os.symlink(local_path, home_path)
 
-files = ['vim', 'vimrc', 'gvimrc', 'zshrc', 'Xresources', 'gitconfig', 'githelpers', 'tmux.conf', 'ctags']
+files = ['vim', 'vimrc', 'zshrc', 'gitconfig', 'githelpers', 'tmux.conf', 'ctags']
 
 for file in files:
   link_local_to_home(file, '.'+file)
