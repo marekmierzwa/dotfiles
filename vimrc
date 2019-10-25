@@ -5,14 +5,23 @@ Plug 'garbas/vim-snipmate' | Plug 'marcweber/vim-addon-mw-utils' | Plug 'tomtom/
 Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
+
+" fuzzy search
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+
+" Comments
 Plug 'tpope/vim-commentary'
 
 " Theme
 Plug 'lifepillar/vim-solarized8'
+Plug 'itchyny/lightline.vim'
 
+" Git
 Plug 'tpope/vim-fugitive'
+
+
+" Utils
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
@@ -55,18 +64,15 @@ set shiftround                    " use multiple of shiftwidth when indenting wi
 
 set list                          " Display tabs and trailing spaces
 set listchars=tab:»\ ,trail:·,nbsp:·
+set nospell
+" lightline handles it
+set noshowmode
 
 set termguicolors
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-if executable("ag")
-  set grepprg=ag\ --vimgrep
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-endif
-
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:jsx_ext_required = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_haml_checkers=['haml_lint', 'haml']
@@ -88,6 +94,9 @@ let g:prettier#config#useTabs = 'false'
 
 let mapleader = ","
 
+" ensure that editorconfig works with fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+
 " fzf settings
 nmap <Leader>f :GFiles<CR>
 
@@ -95,12 +104,16 @@ nmap <Leader>f :GFiles<CR>
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 vmap <Enter> <Plug>(EasyAlign)
-nmap gs :Ag<Space>
 
 map <Leader> <Plug>(easymotion-prefix)
 
 set background=dark
 colorscheme solarized8
+
+let g:lightline = {
+      \'colorscheme': 'solarized',
+      \ }
+
 
 " nerd tree
 nmap <silent> <leader>n :NERDTreeFind<CR>
