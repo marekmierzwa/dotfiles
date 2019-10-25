@@ -1,6 +1,7 @@
 [alias]
   st = status
   ci = commit
+  c  = commit -m
   co = checkout
   di = diff
   dc = diff --cached
@@ -14,6 +15,10 @@
   b = branch
   ds = diff --stat=160,120
   dh1 = diff HEAD~1
+
+  rb = rebase
+  rc = rebase --continue
+  uncommit = reset --soft HEAD^
 
   # Divergence (commits we added and commits remote added)
   div = divergence
@@ -53,3 +58,8 @@
 	editor = vim
 [diff "sopsdiffer"]
 	textconv = sops -d
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
