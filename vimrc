@@ -1,3 +1,4 @@
+syntax on
 call plug#begin()
 
 Plug 'editorconfig/editorconfig-vim'
@@ -68,7 +69,6 @@ set nospell
 " lightline handles it
 set noshowmode
 
-set termguicolors
 
 autocmd QuickFixCmdPost *grep* cwindow
 
@@ -107,13 +107,13 @@ vmap <Enter> <Plug>(EasyAlign)
 
 map <Leader> <Plug>(easymotion-prefix)
 
+set termguicolors
 set background=dark
 colorscheme solarized8
 
 let g:lightline = {
       \'colorscheme': 'solarized',
       \ }
-
 
 " nerd tree
 nmap <silent> <leader>n :NERDTreeFind<CR>
