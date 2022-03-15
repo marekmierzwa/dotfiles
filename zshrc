@@ -80,6 +80,7 @@ plugins=(
   rake
   rbenv
   zsh-nvm
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh

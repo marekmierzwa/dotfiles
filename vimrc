@@ -2,13 +2,12 @@ syntax on
 call plug#begin()
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'garbas/vim-snipmate' | Plug 'marcweber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim'
-Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 
 " fuzzy search
-Plug '/usr/local/opt/fzf'
+" Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Comments
@@ -29,18 +28,17 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 
 " Syntax
-Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'ianks/vim-tsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'kylef/apiblueprint.vim'
 
 call plug#end()
 
@@ -85,12 +83,13 @@ let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#single_quote = 'false'
 let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#arrow_parens = 'avoid'
+let g:prettier#config#arrow_parens = 'always'
 let g:prettier#config#parser = 'babel'
 let g:prettier#config#print_width = 110
-let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#trailing_comma = "none"
 let g:prettier#config#tabWidth = 2
 let g:prettier#config#useTabs = 'false'
+let g:prettier#config#quote_props = 'consistent'
 
 let mapleader = ","
 
@@ -109,7 +108,7 @@ map <Leader> <Plug>(easymotion-prefix)
 
 set termguicolors
 set background=dark
-colorscheme solarized8
+colorscheme solarized8_high
 
 let g:lightline = {
       \'colorscheme': 'solarized',
