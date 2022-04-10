@@ -1,9 +1,11 @@
 syntax on
 call plug#begin()
 
-Plug 'editorconfig/editorconfig-vim'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/syntastic'
+" Search in files
+Plug 'rking/ag.vim' 
+
+" Syntax check
+Plug 'dense-analysis/ale'
 
 " fuzzy search
 " Plug '/usr/local/opt/fzf'
@@ -20,16 +22,11 @@ Plug 'itchyny/lightline.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 
-
 " Utils
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 
-" Syntax
+" Syntax highlight
 Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
@@ -37,8 +34,13 @@ Plug 'mxw/vim-jsx'
 Plug 'ianks/vim-tsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'yaml', 'html'] }
 Plug 'kylef/apiblueprint.vim'
+
+" Nvim
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -67,18 +69,9 @@ set nospell
 " lightline handles it
 set noshowmode
 
-
 autocmd QuickFixCmdPost *grep* cwindow
 
-let g:syntastic_check_on_open = 0
 let g:jsx_ext_required = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_haml_checkers=['haml_lint', 'haml']
-let g:syntastic_html_checkers=['']
-let g:syntastic_ruby_checkers=['rubocop', 'mri']
-let g:syntastic_javascript_checkers = ['eslint', 'jsxlint']
-let g:syntastic_typescript_checkers = ['tslint', 'tsc']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#single_quote = 'false'
@@ -119,3 +112,12 @@ nmap <silent> <leader>n :NERDTreeFind<CR>
 
 " switch between two last open files faster
 nmap <silent> <leader><leader> <c-^>
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
+" nvim
+set scrolloff=15    " Number of lines above/below cursor while scrolling
+set signcolumn=number  " Shows column with errors icons
+set numberwidth=4
+
+nnoremap <esc><esc> :noh<return>
