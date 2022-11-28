@@ -16,7 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 
 " Theme
-Plug 'altercation/vim-colors-solarized'
+Plug 'overcache/NeoSolarized'
 Plug 'itchyny/lightline.vim'
 
 " Git
@@ -25,24 +25,47 @@ Plug 'tpope/vim-fugitive'
 " Utils
 Plug 'scrooloose/nerdtree'
 
-" Syntax highlight
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
-Plug 'mxw/vim-jsx'
-Plug 'ianks/vim-tsx'
-Plug 'leafgarland/typescript-vim'
-Plug 'jparise/vim-graphql'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'yaml', 'html'] }
+
 Plug 'kylef/apiblueprint.vim'
 
 " Nvim
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
+
+"Ale config"
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 0
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  indent = {
+    enable = false,
+    disable = {},
+  },
+  ensure_installed = {
+    "tsx",
+    "json",
+    "html",
+    "scss",
+    "ruby",
+    "graphql",
+    "python",
+    "markdown"
+  },
+}
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+EOF
 
 set nowrap
 set noswapfile
@@ -99,11 +122,13 @@ vmap <Enter> <Plug>(EasyAlign)
 
 map <Leader> <Plug>(easymotion-prefix)
 
+set termguicolors
 set background=dark
 let g:solarized_termtrans = 1
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
-colorscheme solarized
+" colorscheme solarized
+colorscheme NeoSolarized
 
 let g:lightline = { 'colorscheme': 'solarized' }
 
