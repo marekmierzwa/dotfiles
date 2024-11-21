@@ -63,3 +63,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[safe]
+	directory = /Users/marek/.oh-my-zsh

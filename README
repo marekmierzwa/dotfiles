@@ -1,7 +1,4 @@
-VIM config
-
 INSTALLATION:
 
-1. Create the symbolic links by running "cd; ~/dotvim/link_configs.py"
-2. Open VIM, type :PlugInstall to install plugins.
+Create the symbolic links by running "setup.sh"
 
